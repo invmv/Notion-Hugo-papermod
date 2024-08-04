@@ -54,9 +54,12 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
   const mdString = n2m.toMarkdownString(mdblocks);
   page.properties.Name;
   const title = getPageTitle(page);
+  // The path or URL of the image
+  interface Cover {image: string;}
+
   const frontMatter: Record<
     string,
-    string | string[] | number | boolean | PageObjectResponse
+    string | string[] | number | boolean | PageObjectResponse | Cover
   > = {
     title,
     date: page.created_time,
@@ -64,11 +67,16 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     draft: false,
   };
 
+
+
   // set featuredImage
   const featuredImageLink = await getCoverLink(page.id, notion);
   if (featuredImageLink) {
     const { link, expiry_time } = featuredImageLink;
-    frontMatter.featuredImage = link;
+    // frontMatter.cover = [link];
+    const covers: Cover = {image: link,};
+    frontMatter.cover = covers;
+
     // update nearest_expiry_time
     if (expiry_time) {
       if (nearest_expiry_time) {
@@ -163,13 +171,13 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
   }
 
   // set default author
-  if (frontMatter.authors == null) {
+  if (frontMatter.author == null) {
     try {
       const response = await notion.users.retrieve({
         user_id: page.last_edited_by.id,
       });
       if (response.name) {
-        frontMatter.authors = [response.name];
+        frontMatter.author = [response.name];
       }
     } catch (error) {
       console.warn(`[Warning] Failed to get author name for ${page.id}`);

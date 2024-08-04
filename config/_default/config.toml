@@ -1,4 +1,142 @@
-baseURL = "https://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "DoIt"
+baseURL = "https://examplesite.com/"
+title = "ExampleSite12"
+copyright = "这是我的版权信息"
+
+defaultContentLanguage = 'zh-cn'
+paginate = 5
+theme = "PaperMod"
+enableRobotsTXT = true
+pygmentsUseClasses = true
+enableEmoji = true
+
+[minify]
+disableXML = true
+minifyOutput = true
+
+[services]
+  [services.disqus]
+    shortname = 'invmy'
+
+
+[params]
+env = "production"
+keywords = [ "Blog", "Portfolio", "PaperMod" ]
+images = [ "<link or path of image for opengraph, twitter-cards>" ]
+DateFormat = "2006-1-2"
+
+defaultTheme = "auto"
+disableThemeToggle = false
+ShowReadingTime = false
+ShowShareButtons = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = false
+ShowCodeCopyButtons = false
+ShowWordCount = false
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = true
+comments = true
+hidemeta = false
+hideSummary = false
+showtoc = true
+tocopen = false
+
+  [params.assets]
+  favicon = "<link / abs url>"
+  favicon16x16 = "<link / abs url>"
+  favicon32x32 = "<link / abs url>"
+  apple_touch_icon = "<link / abs url>"
+  safari_pinned_tab = "<link / abs url>"
+
+  [params.label]
+  text = "🏠"
+  icon = "/apple-touch-icon.png"
+  iconHeight = 35
+
+  [params.profileMode]
+  enabled = false
+  title = "ExampleSite"
+  subtitle = "This is subtitle"
+  imageUrl = "<img location>"
+  imageWidth = 120
+  imageHeight = 120
+  imageTitle = "my image"
+
+    [[params.profileMode.buttons]]
+    name = "Posts"
+    url = "posts"
+
+    [[params.profileMode.buttons]]
+    name = "Tags"
+    url = "tags"
+
+  [params.homeInfoParams]
+  Title = "Hi there 👋"
+  Content = "Welcome to my blog"
+
+  [[params.socialIcons]]
+  name = "x"
+  url = "https://x.com/"
+
+  [[params.socialIcons]]
+  name = "stackoverflow"
+  url = "https://stackoverflow.com"
+
+  [[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/"
+
+[params.analytics.google]
+SiteVerificationTag = "XYZabc"
+
+[params.analytics.bing]
+SiteVerificationTag = "XYZabc"
+
+[params.analytics.yandex]
+SiteVerificationTag = "XYZabc"
+
+  [params.cover]
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
+  linkFullImages = true
+
+  # [params.editPost]
+  # URL = "https://github.com/<path_to_repo>/content"
+  # Text = "Suggest Changes"
+  # appendFilePath = false
+
+  [params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1_000
+  threshold = 0.4
+  minMatchCharLength = 0
+  limit = 10
+  keys = [ "title", "permalink", "summary", "content" ]
+
+[[menu.main]]
+identifier = "categories"
+name = "categories"
+url = "/categories/"
+weight = 10
+
+[[menu.main]]
+identifier = "tags"
+name = "tags"
+url = "/tags/"
+weight = 20
+
+[[menu.main]]
+identifier = "example"
+name = "example.org"
+url = "https://example.org"
+weight = 30
+
+[markup.highlight]
+noClasses = false
+
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
