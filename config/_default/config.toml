@@ -1,6 +1,6 @@
-baseURL = "https://examplesite.com/"
-title = "ExampleSite12"
-copyright = "这是我的版权信息"
+baseURL = "https://invmv.github.io/Notion-Hugo-papermod/"
+title = "Notion-hugo papermod theme"
+copyright = "@ cc"
 
 defaultContentLanguage = 'zh-cn'
 paginate = 5
