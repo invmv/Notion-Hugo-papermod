@@ -16,7 +16,8 @@ minifyOutput = true
 # [services]
 #   [services.disqus]
 #     shortname = 'shortname'
-
+#   [services.googleAnalytics]
+#     ID = 'G-XXXXXXXXX'
 
 [params]
 env = "production"
@@ -50,7 +51,9 @@ tocopen = false
   favicon32x32 = "<link / abs url>"
   apple_touch_icon = "<link / abs url>"
   safari_pinned_tab = "<link / abs url>"
+  disableFingerprinting = true
 
+  
   [params.label]
   text = "🏠"
   # icon = "/apple-touch-icon.png"
